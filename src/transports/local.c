@@ -543,7 +543,7 @@ static int local_download_pack(
 				error = git_revwalk_hide(walk, &rhead->loid);
 		} else {
 			/* Tag or some other wanted object. Add it on its own */
-			error = git_packbuilder_insert(pack, &rhead->oid, rhead->name);
+			error = git_packbuilder_insert_recur(pack, &rhead->oid, rhead->name);
 		}
 		git_object_free(obj);
 	}
